@@ -1,0 +1,113 @@
+:root {
+  --light-bg: #f5f5f5;
+  --dark-bg: #1a1a1a; /* Darker grey for dark mode */
+  --light-text: #333;
+  --dark-text: #f5f5f5;
+  --primary-color: #6200ea;
+  --button-bg: #6200ea;
+  --button-text: #fff;
+  --positive-color: #4caf50; /* Green for positive results */
+  --negative-color: #f44336; /* Red for negative results */
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.App.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.App.dark {
+  background-color: var(--dark-bg); /* Apply darker grey */
+  color: var(--dark-text);
+}
+
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 8px 16px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+  background: #3700b3;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+textarea, select, .submit-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+textarea {
+  resize: vertical;
+  height: 150px; /* Make the textarea bigger */
+  font-size: 1.1em;
+}
+
+textarea:focus, select:focus, .submit-button:focus {
+  border-color: var(--primary-color);
+}
+
+.submit-button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background: #3700b3;
+}
+
+/* Result styling based on prediction */
+.result {
+  margin-top: 20px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  border-radius: 4px;
+  background: rgba(98, 0, 234, 0.1);
+}
+
+.result.positive {
+  color: var(--positive-color);
+  border: 1px solid var(--positive-color);
+}
+
+.result.negative {
+  color: var(--negative-color);
+  border: 1px solid var(--negative-color);
+}

@@ -9,11 +9,13 @@ function App() {
   const [genre, setGenre] = useState('');
   const [result, setResult] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
+  const [showLyrics, setShowLyrics] = useState(false); // New state to control displaying lyrics
 
   const handleToggleTheme = () => setDarkMode(!darkMode);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
+    setShowLyrics(true); // Show lyrics when "Analyze" is clicked
     try {
       const response = await axios.post('http://localhost:5000/api/predict', { lyrics, genre });
       setResult(response.data.prediction);
@@ -37,7 +39,7 @@ function App() {
         <button type="submit" className="submit-button">Analyze</button>
       </form>
       {result && <div className={resultClass}>Prediction: {result}</div>}
-      {lyrics && (
+      {showLyrics && lyrics && (
         <div className="lyrics-display">
           <h3>Entered Lyrics:</h3>
           <div className="lyrics-box">{lyrics}</div>

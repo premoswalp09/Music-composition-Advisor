@@ -23,7 +23,7 @@ function App() {
   };
 
   // Determine the result class based on the prediction value
-  const resultClass = result === 'Positive' ? 'result positive' : 'result negative';
+  const resultClass = result === 'Positive' ? 'result positive' : result === 'Negative' ? 'result negative' : 'result neutral';
 
   return (
     <div className={`App ${darkMode ? 'dark' : 'light'}`}>
@@ -37,6 +37,12 @@ function App() {
         <button type="submit" className="submit-button">Analyze</button>
       </form>
       {result && <div className={resultClass}>Prediction: {result}</div>}
+      {lyrics && (
+        <div className="lyrics-display">
+          <h3>Entered Lyrics:</h3>
+          <div className="lyrics-box">{lyrics}</div>
+        </div>
+      )}
     </div>
   );
 }

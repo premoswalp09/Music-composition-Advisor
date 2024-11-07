@@ -1,6 +1,6 @@
 :root {
   --light-bg: #f5f5f5;
-  --dark-bg: #1a1a1a; /* Darker grey for dark mode */
+  --dark-bg: #121212; /* Darker grey for dark mode */
   --light-text: #333;
   --dark-text: #f5f5f5;
   --primary-color: #6200ea;
@@ -8,6 +8,9 @@
   --button-text: #fff;
   --positive-color: #4caf50; /* Green for positive results */
   --negative-color: #f44336; /* Red for negative results */
+  --neutral-color: #ff9800;  /* Orange for neutral results */
+  --light-grey-box: #d3d3d3; /* Background color for the lyrics box */
+  --dark-grey-box: #2d2d2d; /* Darker grey for lyrics box in dark mode */
 }
 
 .App {
@@ -23,7 +26,7 @@
 }
 
 .App.dark {
-  background-color: var(--dark-bg); /* Apply darker grey */
+  background-color: var(--dark-bg);
   color: var(--dark-text);
 }
 
@@ -110,4 +113,61 @@ textarea:focus, select:focus, .submit-button:focus {
 .result.negative {
   color: var(--negative-color);
   border: 1px solid var(--negative-color);
+}
+
+.result.neutral {
+  color: var(--neutral-color);
+  border: 1px solid var(--neutral-color);
+}
+
+/* Lyrics display styling */
+.lyrics-display {
+  margin-top: 20px;
+}
+
+.lyrics-box {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  color: var(--light-text);
+  white-space: pre-wrap;
+  background-color: var(--light-grey-box); /* Default for light mode */
+}
+
+.App.dark .lyrics-box {
+  background-color: var(--dark-grey-box);
+  color: var(--dark-text); /* Ensure readability in dark mode */
+}
+
+/* Genre tags with hover effect */
+.genre-tag {
+  display: inline-block;
+  background-color: #ddd;
+  color: #333;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 14px;
+  transition: transform 0.2s ease; /* Smooth transition for scaling */
+}
+
+.genre-tag:hover {
+  transform: scale(1.1); /* Slightly enlarge the item */
+}
+
+.remove-btn {
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  color: #f44336; /* Red color for the remove button */
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.remove-btn:hover {
+  text-decoration: underline;
+}
+
+.selected-genres {
+  margin-top: 10px;
 }
